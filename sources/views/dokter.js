@@ -6,7 +6,7 @@ import { JetView } from "webix-jet";
 export default class Dokter extends JetView {
 	config(){
 		var ui = {rows: [
-			{ view:"template", template:"Data Rawat Jalan", type:"header" },
+			{ view:"template", template:"Data Dokter", type:"header" },
 			{
 				view:"toolbar", paddingY:2,
 				cols:[
