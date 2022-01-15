@@ -60,7 +60,7 @@ export default class TransaksiPeriksa extends JetView {
 				id:"formTransaksiPeriksa",
 				borderless:true,
 				elements:[
-					{ view:"combo", label:"Pasien", name:"id_pasien", options: "http://localhost:3000/pasiens/options" },
+					{ view:"combo", label:"Pasien", name:"no_rm", options: "http://localhost:3000/pasiens/options" },
 					{ view:"combo", label:"Dokter", name:"id_dokter", options: "http://localhost:3001/dokter/options" },
 					{ view:"combo", label:"Diagnosa", name:"id_diagnosa", options: "http://localhost:3001/diagnosa/options" },
 					{ view:"text", label:"Biaya", name:"biaya"},

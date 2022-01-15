@@ -60,7 +60,7 @@ export default class RawatJalan extends JetView {
 				borderless:true,
 				elements:[
 					{ view:"combo", label:"Pasien", name:"no_rm", options: "http://localhost:3000/pasiens/options" },
-					{ view:"combo", label:"Poli", name:"id_poli", options: "http://localhost:3000/poli/options" },
+					{ view:"combo", label:"Poli", name:"id_poli", options: "http://localhost:3001/poli/options" },
 					{ cols: [
 						{ template:"", borderless:true },
 						{ view:"button", click:()=>this.simpanRawatJalan(), label:"Simpan", type:"form", width:120, borderless:true },
