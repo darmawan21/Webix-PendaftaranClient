@@ -21,8 +21,9 @@ export default class TopView extends JetView{
 				{ value:"Dokter", id:"dokter", icon:"wxi-pencil"},
 				{ value:"Diagnosa", id:"diagnosa", icon:"wxi-pencil"},
 				{ value:"Rawat Jalan", id:"rawat_jalan", icon:"wxi-pencil"},
-				{ value:"Tindakan Medis", id:"tindakan_medis", icon:"wxi-pencil"},
 				{ value:"Transaksi Periksa", id:"transaksi_periksa", icon:"wxi-pencil"},
+				{ value:"Tindakan Medis", id:"tindakan_medis", icon:"wxi-pencil"},
+				{ value:"Transaksi Periksa Detail", id:"transaksi_periksa_detail", icon:"wxi-pencil"},
 			]
 		};
 
