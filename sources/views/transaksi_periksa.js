@@ -12,6 +12,7 @@ export default class TransaksiPeriksa extends JetView {
 				cols:[
 					{ view:"button", click:()=>this.tambahTransaksiPeriksa(), label:"Tambah", type:"iconButton", icon:"fa fa-plus", width:100 },
 					{ view:"button", click:()=>this.refreshTransaksiPeriksa(), label:"Refresh", type:"iconButton", icon:"fa fa-sync", width:100 },
+					{ view:"button", click:()=>this.cetakPeriksaPdf(), label:"Cetak Rekam Medis", type:"iconButton", width:200 },
 					{ template:"", borderless:true },
 					{ view:"button", click:()=>this.ubahTransaksiPeriksa(), label:"Ubah", type:"iconButton", icon:"fa fa-edit", width:100 },
 					{ view:"button", click:()=>this.hapusTransaksiPeriksa(), label:"Hapus", type:"iconButton", icon:"fa fa-trash-alt", width:100 },
@@ -169,8 +170,43 @@ export default class TransaksiPeriksa extends JetView {
 		}
 	}
 
+	cetakPeriksaPdf(){
+		var row = $$("tabelTransaksiPeriksa").getSelectedItem();
+		if(row){
+			$$("cetakPeriksa").parse(row);
+			webix.print($$("cetakPeriksa"));
+		} else {
+			webix.alert("Tidak ada data yang dipilih");
+		}
+	}
+
+	cetakPeriksa() {
+		return {
+			view: "template",
+			id:"cetakPeriksa",
+			template: `<table width='400'>
+						<tr>
+							<td>Pasien : </td><td>#nama_pasien#</td>
+						</tr>
+						<tr>
+							<td>Dokter :</td><td>#nama_dokter#</td>
+						</tr>
+						<tr>
+							<td>Diagnosa :</td><td>#nama_diagnosa#</td>
+						</tr>
+						<tr>
+							<td>Tanggal :</td><td>#createdAt#</td>
+						</tr>
+						<tr>
+							<td>Aksi:</td><td>Tindakan</td>
+						</tr>
+					  </table>`
+		};
+	}
+
 	init(){
 		this.ui(this.formTransaksiPeriksa());
+		this.ui(this.cetakPeriksa());
 	}
 
 	ready(){

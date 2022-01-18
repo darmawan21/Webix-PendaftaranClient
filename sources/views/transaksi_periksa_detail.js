@@ -12,6 +12,7 @@ export default class TransaksiPeriksaDetail extends JetView {
 				cols:[
 					{ view:"button", click:()=>this.tambahTransaksiPeriksaDetail(), label:"Tambah", type:"iconButton", icon:"fa fa-plus", width:100 },
 					{ view:"button", click:()=>this.refreshTransaksiPeriksaDetail(), label:"Refresh", type:"iconButton", icon:"fa fa-sync", width:100 },
+					{ view:"button", click:()=>this.cetakTagihanPdf(), label:"Cetak Tagihan", type:"iconButton", width:200 },
 					{ template:"", borderless:true },
 					{ view:"button", click:()=>this.ubahTransaksiPeriksaDetail(), label:"Ubah", type:"iconButton", icon:"fa fa-edit", width:100 },
 					{ view:"button", click:()=>this.hapusTransaksiPeriksaDetail(), label:"Hapus", type:"iconButton", icon:"fa fa-trash-alt", width:100 },
@@ -166,9 +167,41 @@ export default class TransaksiPeriksaDetail extends JetView {
 			webix.alert("Tidak ada data yang dipilih");
 		}
 	}
+	
+	cetakTagihanPdf(){
+		var row = $$("tabelTransaksiPeriksaDetail").getSelectedItem();
+		if(row){
+			$$("cetakTagihan").parse(row);
+			webix.print($$("cetakTagihan"));
+		} else {
+			webix.alert("Tidak ada data yang dipilih");
+		}
+	}
+
+	cetakTagihan() {
+		return {
+			view: "template",
+			id:"cetakTagihan",
+			template: `<table width='400'>
+						<tr>
+							<td>Transaksi Periksa : </td><td>#id_transaksi_periksa#</td>
+						</tr>
+						<tr>
+							<td>Tindakan Medis :</td><td>#nama_tindakan#</td>
+						</tr>
+						<tr>
+							<td>Biaya :</td><td>#biaya#</td>
+						</tr>
+						<tr>
+							<td>Tanggal :</td><td>#createdAt#</td>
+						</tr>
+					  </table>`
+		};
+	}
 
 	init(){
 		this.ui(this.formTransaksiPeriksaDetail());
+		this.ui(this.cetakTagihan());
 	}
 
 	ready(){

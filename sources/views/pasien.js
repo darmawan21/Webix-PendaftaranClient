@@ -12,6 +12,7 @@ export default class Pasien extends JetView {
 				cols:[
 					{ view:"button", click:()=>this.tambahPasien(), label:"Tambah", type:"iconButton", width:100 },
 					{ view:"button", click:()=>this.refreshPasien(), label:"Refresh", type:"iconButton", width:100 },
+					{ view:"button", click:()=>this.kartuPasienPdf(), label:"Cetak PDF", type:"iconButton", width:100 },
 					{ template:"", borderless:true },
 					{ view:"button", click:()=>this.ubahPasien(), label:"Ubah", type:"iconButton", width:100 },
 					{ view:"button", click:()=>this.hapusPasien(), label:"Hapus", type:"iconButton", width:100 },
@@ -168,8 +169,37 @@ export default class Pasien extends JetView {
 		}
 	}
 
+	kartuPasienPdf(){
+		var row = $$("tabelPasien").getSelectedItem();
+		if(row){
+			$$("kartuPasien").parse(row);
+			webix.print($$("kartuPasien"));
+		} else {
+			webix.alert("Tidak ada data yang dipilih");
+		}
+	}
+
+	kartuPasien() {
+		return {
+			view: "template",
+			id:"kartuPasien",
+			template: `<table width='400'>
+						<tr>
+							<td width='60'> No. RM: </td><td>#no_rm#</td>
+						</tr>
+						<tr>
+							<td>Nama: </td><td>#nama#</td>
+						</tr>
+						<tr>
+							<td>Alamat:</td><td>#alamat#</td>
+						</tr>
+					  </table>`
+		};
+	}
+
 	init(){
 		this.ui(this.formPasien());
+		this.ui(this.kartuPasien());
 	}
 
 	ready(){

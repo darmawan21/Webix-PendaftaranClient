@@ -6,7 +6,7 @@ import { JetView } from "webix-jet";
 export default class JenisPenunjang extends JetView {
 	config(){
 		var ui = {rows: [
-			{ view:"template", template:"Data JenisPenunjang", type:"header" },
+			{ view:"template", template:"Data Jenis Penunjang", type:"header" },
 			{
 				view:"toolbar", paddingY:2,
 				cols:[

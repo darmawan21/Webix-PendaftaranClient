@@ -11,7 +11,7 @@ export default class TopView extends JetView{
 		var menu = {
 			view:"menu", id:"top:menu", 
 			css:"app_menu",
-			width:180, layout:"y", select:true,
+			width:280, layout:"y", select:true,
 			template:"<span class='webix_icon #icon#'></span> #value# ",
 			data:[
 				{ value:"Dashboard", id:"start", icon:"wxi-columns" },
@@ -25,6 +25,13 @@ export default class TopView extends JetView{
 				{ value:"Tindakan Medis", id:"tindakan_medis", icon:"wxi-pencil"},
 				{ value:"Transaksi Periksa Detail", id:"transaksi_periksa_detail", icon:"wxi-pencil"},
 				{ value:"Jenis Penunjang", id:"jenis_penunjang", icon:"wxi-pencil"},
+				{ value:"Transaksi Penunjang", id:"transaksi_penunjang", icon:"wxi-pencil"},
+				{ value:"Transaksi Penunjang Detail", id:"transaksi_penunjang_detail", icon:"wxi-pencil"},
+				{ value:"Obat", id:"obat", icon:"wxi-pencil"},
+				{ value:"Transaksi Obat", id:"transaksi_obat", icon:"wxi-pencil"},
+				{ value:"Transaksi Obat Detail", id:"transaksi_obat_detail", icon:"wxi-pencil"},
+				{ value:"Transaksi Bayar", id:"transaksi_bayar", icon:"wxi-pencil"},
+				{ value:"Transaksi Bayar Detail", id:"transaksi_bayar_detail", icon:"wxi-pencil"},
 			]
 		};
 
