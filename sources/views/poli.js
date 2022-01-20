@@ -22,7 +22,7 @@ export default class Poli extends JetView {
 				select: true,
 				id:"tabelPoli",
 				columns: [
-					{ id:"nama", header:["Nama",{content:"textFilter"}], width:100 },
+					{ id:"nama", header:["Nama",{content:"textFilter"}], width:150 },
 					{ id:"createdAt", header:["Tanggal",{content:"textFilter"}], width:150 },
 				],
 				pager:"pagerPoli",
@@ -70,7 +70,7 @@ export default class Poli extends JetView {
 
 	refreshPoli(){
 		$$("tabelPoli").clearAll();
-		$$("tabelPoli").load("http://localhost:3002/poli");
+		$$("tabelPoli").load("http://localhost:3001/poli");
 	}
 
 	tambahPoli(){
@@ -117,9 +117,9 @@ export default class Poli extends JetView {
 			$$("windowFormPoli").disable();
 
 			if (dataKirim.createdAt === undefined ) {
-				webix.ajax().post("http://localhost:3002/poli", dataKirim, callbackHasil);
+				webix.ajax().post("http://localhost:3001/poli", dataKirim, callbackHasil);
 			} else {
-				webix.ajax().put("http://localhost:3002/poli", dataKirim, callbackHasil);
+				webix.ajax().put("http://localhost:3001/poli", dataKirim, callbackHasil);
 			}
 		}
 	}
@@ -153,7 +153,7 @@ export default class Poli extends JetView {
 				text: "Anda yakin ingin menghapus data ini ?",
 				callback:function(jwb){
 					if(jwb) {
-						webix.ajax().del("http://localhost:3002/poli", row, callbackHasil);
+						webix.ajax().del("http://localhost:3001/poli", row, callbackHasil);
 					}
 				}
 			});
